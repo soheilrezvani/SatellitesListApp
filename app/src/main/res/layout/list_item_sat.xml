@@ -1,0 +1,81 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:minHeight="80dp"
+        android:onClick="@{clickListener}">
+
+        <ImageView
+            android:id="@+id/satellite_item_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="32dp"
+            android:minHeight="32dp"
+            android:scaleType="centerCrop"
+            android:src="@{sat.active ? @drawable/ic_circle_active : @drawable/ic_circle_passive }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/divider_mock_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/satellite_item_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="center_horizontal"
+            android:text="@{sat.active ? sat.activeCaption : sat.passiveCaption}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@{sat.active ? @color/Gray_1 : @color/Gray_6}"
+            app:layout_constraintStart_toStartOf="@+id/satellite_item_title"
+            app:layout_constraintTop_toBottomOf="@id/satellite_item_title"
+
+            tools:text="caption" />
+
+        <TextView
+            android:id="@+id/satellite_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:text="@{sat.name}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@{sat.active ? @color/Gray_1 : @color/Gray_6}"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/divider_mock_view"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="title" />
+
+        <View
+            android:id="@+id/divider_mock_view"
+            android:layout_width="32dp"
+            android:layout_height="2dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="sat"
+            type="com.srn.satellitelist.entity.Satellite" />
+    </data>
+
+
+</layout>

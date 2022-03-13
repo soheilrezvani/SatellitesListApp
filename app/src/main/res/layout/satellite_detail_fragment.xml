@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/satName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@{viewModel.satelliteName}"
+            android:textColor="@color/title_text_color"
+            android:textSize="28sp"
+
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+
+            />
+
+
+        <TextView
+            android:id="@+id/dateCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.detailData.first_flight}"
+            android:textColor="@color/subtitle_text_color"
+            android:textSize="12sp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/satName"
+            app:layout_constraintVertical_bias="0.04" />
+
+
+        <TextView
+            android:id="@+id/heightMassCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/height_mass_text"
+            android:textColor="@color/title_text_color"
+            android:textSize="14sp"
+            android:textStyle="bold"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/heightMassText"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateCaption"
+            app:layout_constraintVertical_bias="0.15"
+
+            />
+
+        <TextView
+            android:id="@+id/heightMassText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{String.valueOf(viewModel.detailData.height) + '/' + String.valueOf(viewModel.detailData.mass)}"
+            android:textColor="@color/caption_text_color"
+            android:textSize="14sp"
+
+            app:layout_constraintBaseline_toBaselineOf="@id/heightMassCaption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/heightMassCaption" />
+
+
+        <TextView
+            android:id="@+id/costCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cost_text"
+            android:textColor="@color/title_text_color"
+            android:textSize="14sp"
+            android:textStyle="bold"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/costText"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heightMassCaption"
+            app:layout_constraintVertical_bias="0.15" />
+
+        <TextView
+            android:id="@+id/costText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{String.valueOf(viewModel.detailData.cost_per_launch)}"
+            android:textColor="@color/caption_text_color"
+            android:textSize="14sp"
+
+            app:layout_constraintBaseline_toBaselineOf="@id/costCaption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/costCaption"
+
+            app:layout_constraintVertical_weight="0.3" />
+
+
+        <TextView
+            android:id="@+id/lastPositionCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/last_position_text"
+            android:textColor="@color/title_text_color"
+            android:textSize="14sp"
+            android:textStyle="bold"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/lastPositionText"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/costCaption"
+            app:layout_constraintVertical_bias="0.15" />
+
+        <TextView
+            android:id="@+id/lastPositionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:text="@{String.valueOf(viewModel.positionData.id)}"
+            android:textColor="@color/caption_text_color"
+            android:textSize="14sp"
+
+            app:layout_constraintBaseline_toBaselineOf="@id/lastPositionCaption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/lastPositionCaption"
+            app:layout_constraintVertical_weight="0.3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="com.srn.satellitelist.entity.SatelliteDetail" />
+
+        <variable
+            name="viewModel"
+            type="com.srn.satellitelist.viewmodel.SatelliteDetailViewModel" />
+
+    </data>
+
+</layout>

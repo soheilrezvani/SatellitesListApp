@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SatelliteList</string>
+    <string name="search_text">Search Satellite</string>
+
+    <!--   sat detail fragment !-->
+    <string name="height_mass_text">Height/Mass:</string>
+    <string name="cost_text">Cost:</string>
+    <string name="last_position_text">Last Position:</string>
+</resources>
